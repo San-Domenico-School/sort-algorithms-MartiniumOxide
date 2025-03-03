@@ -6,8 +6,8 @@ import java.util.ArrayList;
  * should then implement the sort method at the botton of this class to see 
  * if they understanding basic ArrayList sort algorithms.
  * 
- * @author Bruce Gustin
- * @version Feb 8, 2023
+ * @author 
+ * @version 
  */
 
 public class Dealer extends Actor
@@ -70,27 +70,54 @@ public class Dealer extends Actor
     **/
     
     /* In this space write the pseudocode for your selection sort
-     * 
-     * 
-     * 
+     * Start from the first element and assume it is the smallest.
+     * Scan the rest of the array to find the actual smallest element.
+     * Swap the smallest element with the current position.
+     * Move to the next position and repeat until the entire array is sorted.
      */
     private Card[] selectionSort(Card[] arr, int n)
     {
         //put sort algorithm here
-        
+        for (int i = 0; i < n; i++)
+        {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++)
+            {
+                if ( arr[j].getValue() < arr[minIndex].getValue())
+                {
+                    minIndex = j;
+                }
+            }
+            Card temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
         return selectionSort;
     }
     
     /* In this space write the pseudocode for your insertion sort
-     * 
-     * 
-     * 
+     * Start with the second element, considering the first element as sorted.
+     * Compare it with elements in the sorted section and shift larger elements 
+     * to the right.
+     * Insert the current element into its correct position.
+     * Repeat for each element until the entire array is sorted.
      */
     private Card[] insertionSort(Card[] arr, int n)
     {
-        
         //put sort algorithm here
-        
+        for (int i = 1; i < n; i++) 
+        {
+            Card key = arr[i];
+            int j = i - 1;
+            
+            while (j >= 0 && arr[j].getValue() > key.getValue()) 
+            {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            
+            arr[j + 1] = key;
+        }
         return insertionSort;
     }
     

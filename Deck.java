@@ -41,7 +41,7 @@ public class Deck
             shuffledDeck[i] = initialDeck[i];
         }
         
-        // This algorithm will swap the cards 300 times
+        // This algorithm will swap the cards 300 times 
         for(int i = 0; i < 300; i++)
         {
             int shuffledIndex = (int)(Math.random() * initialDeck.length);
